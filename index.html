@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <button onclick="document.getElementById('signup').style.display='block'" style="width:auto;">Sign Up</button>
+    <button type="button" class="btn btn-success" onclick="document.getElementById('signup').style.display='block'" style="width:auto;">Sign Up</button>
 
     <div id="signup" class="modal">
         <span onclick="document.getElementById('signup').style.display='none'" class="close"
@@ -43,7 +43,7 @@
             </div>
         </form>
     </div>
-    <button onclick="document.getElementById('login').style.display='block'" style="width:auto;">Login</button>
+    <button type="button" class="btn btn-success" onclick="document.getElementById('login').style.display='block'" style="width:auto;">Login</button>
 
     <div id="login" class="modal">
 
@@ -60,7 +60,7 @@
                 <label for="psw"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="psw" required>
 
-                <button type="submit">Login</button>
+                <button type="submit" class="btn btn-success">Login</button>
                 <label>
                     <input type="checkbox" checked="checked" name="remember"> Remember me
                 </label>
@@ -68,7 +68,7 @@
 
             <div class="container" style="background-color:#f1f1f1">
                 <button type="button" onclick="document.getElementById('login').style.display='none'"
-                    class="cancelbtn1">Cancel</button>
+                    class="btn btn-danger">Cancel</button>
                 <span class="psw">Forgot <a href="#">password?</a></span>
             </div>
         </form>
@@ -83,7 +83,7 @@
         </div>
     </div> -->
     <div id="quiz"></div>
-    <button id="submit">Get Results</button>
+    <button type="button" class="btn btn-success" id="submit" >Get Results</button>
     <div id="results"></div>
 </body>
 
