@@ -75,20 +75,23 @@
             </div>
         </form>
     </div>
-    <!-- <div class="card-deck">
-        <div class="card-columns bg-success">
-            <div class="card-body text-center">
-               <h1 class="card-header">Quick Facts</h1>
-                <p class="card-text">  JavaScript is one of the three main things of the www</p>
-
-            </div>
+    <div class="quizContainer container-fluid well well-lg">
+        <div id="quiz1" class="text-center">
+            <h3>KGCAS - Javascript FDP 2018</h3>
+            <h4>
+                <span id="iTimeShow">Time Remaining: </span><br /><span id="timer" style="font-size:25px;"></span>
+            </h4>
+            <h2>jQuery Quiz</h2>
         </div>
-    </div> -->
-    <div id="quiz">
+
+        <div class="question"></div>
+        <ul class="choiceList"></ul>
+        <div class="quizMessage"></div>
+        <div class="result"></div>
+        <button class="preButton">Previous Question</button>
+        <button class="nextButton">Next Question</button>
     </div>
-    <button type="button" class="btn btn-success" id="submit">Get Results</button>
-    <div id="results"></div>
-<script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

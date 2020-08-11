@@ -39,3 +39,29 @@ var questions = [{
     choices: ["'32'", "'122'", "'13'", "'14'"],
     correctAnswer: 0
 }];
+var currentQuestion = 0;
+var viewingAns = 0;
+var correctAnswers = 0;
+var quizOver = false;
+var iSelectedAnswer = [];
+	var c=180;
+	var t;
+$(document).ready(function () 
+{
+    // Display the first question
+    displayCurrentQuestion();
+    $(this).find(".quizMessage").hide();
+    $(this).find(".preButton").attr('disabled', 'disabled');
+	
+	timedCount();
+	
+	$(this).find(".preButton").on("click", function () 
+	{		
+		
+        if (!quizOver) 
+		{
+			if(currentQuestion == 0) { return false; }
+	
+			if(currentQuestion == 1) {
+			  $(".preButton").attr('disabled', 'disabled');
+			}
