@@ -174,3 +174,14 @@ function displayCurrentQuestion() {
     $(choiceList).find("li").remove();
     var choice;
 
+    for (i = 0; i < numChoices; i++) 
+	{
+        choice = questions[currentQuestion].choices[i];
+		
+		if(iSelectedAnswer[currentQuestion] == i) {
+			$('<li><input type="radio" class="radio-inline" checked="checked"  value=' + i + ' name="dynradio" />' +  ' ' + choice  + '</li>').appendTo(choiceList);
+		} else {
+			$('<li><input type="radio" class="radio-inline" value=' + i + ' name="dynradio" />' +  ' ' + choice  + '</li>').appendTo(choiceList);
+		}
+    }
+}
