@@ -86,3 +86,82 @@ $(document).ready(function () {
                 $(document).find(".quizMessage").show();
             }
             else
+            {
+                
+                $(document).find(".quizMessage").hide();
+                if (val == questions[currentQuestion].correctAnswer) {
+                    correctAnswers++;
+                }
+                iSelectedAnswer[currentQuestion] = val;
+
+                currentQuestion++; 
+                if (currentQuestion >= 1) {
+                    $('.preButton').prop("disabled", false);
+                }
+                if (currentQuestion < questions.length) {
+                    displayCurrentQuestion();
+
+                }
+                else {
+                    displayScore();
+                    $('#iTimeShow').html('Quiz Time Completed!');
+                    $('#timer').html("You scored: " + correctAnswers + " out of: " + questions.length);
+                    c = 185;
+                    $(document).find(".preButton").text("View Answer");
+                    $(document).find(".nextButton").text("Play Again?");
+                    quizOver = true;
+                    return false;
+
+                }
+            }
+
+        }
+        else 
+        { // quiz is over and clicked the next button (which now displays 'Play Again?'
+        quizOver = false; $('#iTimeShow').html('Time Remaining:'); iSelectedAnswer = [];
+        $(document).find(".nextButton").text("Next Question");
+        $(document).find(".preButton").text("Previous Question");
+         $(".preButton").attr('disabled', 'disabled');
+        resetQuiz();
+        viewingAns = 1;
+        displayCurrentQuestion();
+        hideScore();
+    }
+});
+});
+
+
+
+function timedCount()
+{
+    if(c == 185) 
+    { 
+        return false; 
+    }
+    
+    var hours = parseInt( c / 3600 ) % 24;
+    var minutes = parseInt( c / 60 ) % 60;
+    var seconds = c % 60;
+    var result = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);            
+    $('#timer').html(result);
+    
+    if(c == 0 )
+    {
+                displayScore();
+                $('#iTimeShow').html('Quiz Time Completed!');
+                $('#timer').html("You scored: " + correctAnswers + " out of: " + questions.length);
+                c=185;
+                $(document).find(".preButton").text("View Answer");
+                $(document).find(".nextButton").text("Play Again?");
+                quizOver = true;
+                return false;
+                
+    }
+
+    c = c - 1;
+    t = setTimeout(function()
+    {
+        timedCount()
+    },1000);
+}
+
