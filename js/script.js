@@ -115,11 +115,12 @@ $(document).ready(function () {
             }
 
         }
-        else { // quiz is over and clicked the next button (which now displays 'Play Again?'
+        else { 
             quizOver = false; $('#iTimeShow').html('Time Remaining:'); iSelectedAnswer = [];
             $(document).find(".nextButton").text("Next Question");
             $(document).find(".preButton").text("Previous Question");
             $(".preButton").attr('disabled', 'disabled');
+            $(".nextButton").attr('disabled', 'disabled');
             resetQuiz();
             viewingAns = 1;
             displayCurrentQuestion();
@@ -148,7 +149,7 @@ function timedCount() {
         $('#timer').html("You scored: " + correctAnswers + " out of: " + questions.length);
         c = 185;
         $(document).find(".preButton").text("View Answer");
-        $(document).find(".nextButton").text("Play Again?");
+       
         quizOver = true;
         return false;
 
