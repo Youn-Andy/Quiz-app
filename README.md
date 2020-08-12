@@ -29,3 +29,7 @@ Send an email for any questions to ```ayietaphilip00@outlook.com```
 
 Live link of the project 
 ```https://youn-andy.github.io/quiz-app```
+
+MIT License
+
+Copyright (c) 2020 Philip Andrew  Okoth
