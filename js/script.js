@@ -1,18 +1,18 @@
 var questions = [{
-    question: "1. How do you write 'Hello World' in an alert box?",
-    choices: ["msg('Hello World')", "msgBox('Hello World');", "alertBox('Hello World');", "alert('Hello World');"],
-    correctAnswer: 3
+    question: "1. What does HTML stand for?",
+    choices: ["Home tool Markup Language", "Hyperlinks language", "Hyper Text Markup Language", "Hyper Markup Language"],
+    correctAnswer: 4
 }, {
-    question: "2. How to empty an array in JavaScript?",
-    choices: ["arrayList[]", "arrayList(0)", "arrayList.length=0", "arrayList.len(0)"],
-    correctAnswer: 2
+    question: "2. Choose the correct HTML element for the largest heading",
+    choices: ["<h1>", "<head>", "<heading>", "<h6>"],
+    correctAnswer: 0
 }, {
-    question: "3. What function to add an element at the begining of an array and one at the end?",
-    choices: ["push,unshift", "unshift,push", "first,push", "unshift,last"],
+    question: "3.What is the correct HTML element for inserting a line break",
+    choices: ["<break>", "<br>", "<lb>", "<breaking>"],
     correctAnswer: 1
 }, {
-    question: "4. What will this output? var a = [1, 2, 3]; console.log(a[6]);",
-    choices: ["undefined", "0", "prints nothing", "Syntax error"],
+    question: "4.What is the correct HTML for adding a background color",
+    choices: ["<body style=background-color:yellow>", "<bg>yellow</bg>", "<background>Yellow</background>", "none of the above"],
     correctAnswer: 0
 }, {
     question: "5. What would following code return? console.log(typeof typeof 1);",
@@ -115,7 +115,7 @@ $(document).ready(function () {
             }
 
         }
-        else { 
+        else {
             quizOver = false; $('#iTimeShow').html('Time Remaining:'); iSelectedAnswer = [];
             $(document).find(".nextButton").text("Next Question");
             $(document).find(".preButton").text("Previous Question");
@@ -149,7 +149,7 @@ function timedCount() {
         $('#timer').html("You scored: " + correctAnswers + " out of: " + questions.length);
         c = 185;
         $(document).find(".preButton").text("View Answer");
-       
+
         quizOver = true;
         return false;
 
@@ -175,27 +175,25 @@ function displayCurrentQuestion() {
     $(choiceList).find("li").remove();
     var choice;
 
-    for (i = 0; i < numChoices; i++) 
-	{
+    for (i = 0; i < numChoices; i++) {
         choice = questions[currentQuestion].choices[i];
-		
-		if(iSelectedAnswer[currentQuestion] == i) {
-			$('<li><input type="radio" class="radio-inline" checked="checked"  value=' + i + ' name="dynradio" />' +  ' ' + choice  + '</li>').appendTo(choiceList);
-		} else {
-			$('<li><input type="radio" class="radio-inline" value=' + i + ' name="dynradio" />' +  ' ' + choice  + '</li>').appendTo(choiceList);
-		}
+
+        if (iSelectedAnswer[currentQuestion] == i) {
+            $('<li><input type="radio" class="radio-inline" checked="checked"  value=' + i + ' name="dynradio" />' + ' ' + choice + '</li>').appendTo(choiceList);
+        } else {
+            $('<li><input type="radio" class="radio-inline" value=' + i + ' name="dynradio" />' + ' ' + choice + '</li>').appendTo(choiceList);
+        }
     }
 }
 
-function displayScore()
-{
+function displayScore() {
     $(document).find(".quizContainer > .result").text("You scored: " + correctAnswers + " out of: " + questions.length);
     $(document).find(".quizContainer > .result").show();
 }
 var modal = document.getElementById('login');
 
 
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
